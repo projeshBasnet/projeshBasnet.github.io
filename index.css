@@ -1,0 +1,563 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed&family=Herr+Von+Muellerhoff&family=Source+Sans+Pro:wght@200&display=swap');
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --main-font:'Source Sans Pro', sans-serif;
+    --secondary-font:'Herr Von Muellerhoff', cursive;
+    --body-font:'Cabin Condensed', sans-serif;
+    --main-font-colour:#252525;
+    --secondary-font-colour:#c59d5f;
+    --body-font-colour:#515151;
+}
+body{
+    overflow-x: hidden;
+}
+html{
+    font-family: var(--body-font);
+    font-size: 10px;
+    color: var(--body-font-colour);
+    scroll-behavior: smooth;
+}
+.container{
+    width: 100%;
+    max-width: 122.5rem; 
+    padding: 0 2.4rem;
+}
+
+ section{
+     padding: 3.9rem 0;
+ }
+ img{
+     width: 100%;
+     max-width: 100%;
+ }
+ a{
+     text-decoration: none;
+ }
+ p{
+     font-size: 1.6rem;
+ }
+ header{
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     z-index: 1;
+     background-image: linear-gradient(to bottom, rgba(0, 0, 0,.6), transparent);
+ }
+ .fa-times{
+     display: none;
+ }
+ .nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+ .nav-list{
+    position: fixed;
+    list-style: none;
+    left: 0;
+    top: 0;
+    width: 80%;
+    height: 100%;
+    background-color: var(--main-font-colour);
+    padding: 4.4rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: translateX(-100%);
+    transition: transfrom .5s;
+    z-index: 1200;
+
+ }
+ .nav::before{
+     content: '';
+     width: 100vw;
+     height: 100vh;
+     position: fixed;
+     top: 0;
+     left: 0;
+     background-color: rgba(0, 0, 0,.8);
+     z-index: 1000;
+     opacity: 0;
+     transform: scale(0);
+     transition: all .5s;
+ }
+ 
+ .menu-toggler{
+     position: absolute;
+     top: 1rem;
+     right: 1.5rem;
+     font-size: 2.2rem;
+     z-index: 1500;
+     padding: 5px;
+     color:white;
+     height: 10rem;
+     cursor: pointer;
+
+ }
+
+.open .nav-list{
+    transform: translateX(0);
+} 
+.open .fa-bars{
+    display: none;
+}
+.open .fa-times{
+    display: block;
+}
+.open .nav::before{
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+.nav-item{
+    border-bottom: 2px solid rgba(255,255,255,.5);
+    
+}
+.nav-link{
+    display: block;
+    font-size: 1.6rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: -2px;
+    transition: colour .5s;
+
+}
+.nav-link:hover{
+    color: var(--secondary-font-colour);
+}
+/* end of nav */
+
+.hero{
+    width: 100%;
+    height: 100vh;
+    background:url("./images/sweet-2.jpg") center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.sub-headline{
+    font-size: 7rem;
+    font-weight: 100;
+    font-family: var(--secondary-font);
+    letter-spacing: 3px;
+    line-height: .5;
+    color: var(--secondary-font-colour);
+    animation: fadeDown .6s forwards;
+    animation-delay: .9s;
+    opacity: 0;
+
+}
+.first-letter{
+    font-size: 10rem;
+
+}
+.headline{
+    color: #fff;
+    font-size: 4rem;
+    font-family: var(--main-font);
+    font-weight: 700;
+    text-transform: uppercase;
+    animation: scale .7s forwards;
+    opacity: 0;
+
+}
+.seperator{
+    display: flex;
+    justify-content: center;
+
+}
+.line{
+    max-width: 7rem;
+    width: 100%;
+    height: .2rem;
+    background-color: white;
+    position: relative;
+    animation: grow .5s forwards;
+    animation-delay: .5s;
+    opacity: 0;
+
+}
+
+.asterisk{
+    margin-top: -3px;
+    animation: spin .5s forwards;
+    animation-delay: .5s;
+
+}
+.single-animation{
+    animation: fadeUp .5 forwards;
+    animation-delay: 1.5s;
+    opacity: 0;
+}
+.fa-asterisk{
+    color: #fff;
+    margin: 0 .5rem;
+}
+
+.line::before{
+    content: '';
+    border: 5px solid transparent;
+    position: absolute;
+    top: -4px;
+    animation: grow .5s forwards;
+    animation-delay: .7s;
+    opacity: 0;
+}
+.line-left::before{
+    border-left-color: white;
+    left: 0;
+}
+.line-right::before{
+    border-right-color: white;
+    right: 0;
+}
+.single-animation>h5{
+    color: #fff;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 100;
+    margin-bottom: 1.2rem;
+}
+
+.btn{
+    padding: .9rem 1.4rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.cta-btn{
+    background-color: #fff;
+    text-transform: uppercase;
+    transition: all .5s;
+    letter-spacing: 2px;
+    border-radius: .4rem;
+}
+
+.cta-btn:hover{
+    background-color: aquamarine;
+    color: var(--secondary-font-colour);
+}
+
+/* resturant info starts */
+.resturant-info{
+    margin-top: 3rem;
+    align-items: center;
+    text-align: center;
+}
+.global{
+    text-align: center;
+}
+.global >.sub-headline{
+    letter-spacing: -1.7px
+}
+.headline-dark{
+    color: black;
+    font-weight: 100;
+}
+.asterisk-dark{
+    color: black;
+    font-size: 1.5rem;
+}
+
+.resturant-description{
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+.resturant-description>p{
+    text-align: center;
+    font-family: var(--main-font);
+    font-weight: 600;
+}
+.global-btn{
+    margin-bottom: 2rem;
+}
+.global-btn>.btn{
+    padding: 1rem 1.2rem;
+    letter-spacing: 2px;
+    color: var(--secondary-font-colour);
+    position: relative;
+    text-transform: uppercase;
+    transition: all .5s;
+
+}
+.global-btn>.btn::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    background-color:var(--secondary-font-colour);
+    top: 3.8rem;
+    transition: all .5s;
+
+}
+
+.global-btn>.btn:hover{
+    color: black;
+}
+.global-btn>.btn:hover::before{
+    background-color:black;
+
+}
+
+/* Tasteful deligts start */
+.tasteful-receipes{
+    background: url('./images/sweet-6.jpg') center no-repeat;
+    background-size: cover;
+    
+}
+.between{
+    width: 100%;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+/* discover menu starts */
+.menu-images{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+    margin-bottom: 2rem;
+}
+.resturant-description {
+    margin-top: 5rem;
+}
+.resturant-description >p{
+    margin-bottom: 1.5rem;
+}
+
+/* perfect blend starts */
+.perfect-blend{
+    background: url('./images/sweet-5.jpg') center no-repeat;
+    background-size: cover;
+}
+
+/* footer starts */
+footer{
+    margin-top: 3.6rem;
+    background-color: black;
+    color: white;
+    position: relative;
+}
+.back-to-top{
+    position: absolute;
+    top: -3rem;
+    left: 50%;
+    width: 7rem;
+    height: 7rem;
+    background-color: black;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    
+}
+.back-to-top i{
+    color: white;
+    padding: 2rem 3rem;
+    font-size: 1.6rem;
+    display: block;
+    animation: up 2s infinite;
+
+}
+
+.footer-content-about{
+    padding-top: 7rem;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+.footer-content-about>p{
+    font-family: var(--body-font);
+}
+.footer-content h4{
+    font-size: 2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+.asterisk>i{
+    margin-bottom: 2rem;
+}
+.social-media{
+    margin-bottom: 4rem;
+    text-align: center;
+}
+.social-icons{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+.social-icons i{
+    color: white;
+    padding: 2rem 5rem;
+    font-size: 3rem;
+    opacity: .5;
+    transition: opacity .5s;
+}
+.social-icons i:hover{
+    opacity: 1;
+}
+.newslettter-container{
+   text-align: center;
+   padding: 3rem 0;
+
+}
+.newsletter-form{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+.newsletter-input{
+    width: 100%;
+    padding: 1.2rem 2rem;
+    position: relative;
+}
+.newsletter-btn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1rem;
+    border: none;
+    cursor: pointer;
+}
+/* media queries */
+@media only screen and (min-width:880px){
+    .nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between
+     }
+    
+
+    .menu-toggler{
+        display: none;
+    }
+    .nav-list{
+        position: initial;
+        left: initial;
+        top: initial;
+        width: initial;
+        height: initial;
+        padding: 4.4rem 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        transform: initial;
+        transition:initial;
+        background-color: initial;
+        border: none;    
+
+    }
+    .nav-item{
+        border: none;
+        padding: 0 4rem;
+    }
+    .resturant-information{
+        display: flex;
+    }
+    .resturant-information>div{
+        flex: 1;
+    }
+    .resturant-info{
+        display: flex;
+    }
+    .resturant-info>div{
+        flex: 1;
+    }
+    .footer-divider{
+        display: flex;
+        justify-content: space-between;
+    }
+    .social-icons i{
+        opacity: 1;
+    }
+}
+
+
+/* animation */
+@keyframes fadeDown{
+    0%{
+        transform: translateY(4rem);
+
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0rem);
+    }
+}
+@keyframes scale{
+    0%{
+        transform: scale(2);
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes grow{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 100%;
+        opacity: 1;
+    }
+}
+@keyframes fadeUp{
+    0%{
+        transform: translateY(-1rem);
+
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0rem);
+    }
+}
+@keyframes spin{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-360deg);
+        opacity: 1;
+    }
+}
+@keyframes up{
+    0%{
+        opacity: 0;
+
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
